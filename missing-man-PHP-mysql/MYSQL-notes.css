@@ -41,7 +41,7 @@ SELECT engine, comment
 FROM engines
 WHERE support = 'no';		/* show data from columns ENGINE and COMMENT, from table ENGINES, where SUPPORT value is equal to 'no' */
 
-mysql> CREATE TEBLE users (		/* Create table, with columns user_id...   int, VARCHAR - is a type of data in the column */
+mysql> CREATE TABLE users (		/* Create table, with columns user_id...   int, VARCHAR - is a type of data in the column */
 	user_id int,
 	first_name VARCHAR(20),
 	last_name VARCHAR(30),
