@@ -35,7 +35,7 @@
 	i means - uppercase or lowercase
 */
 	$return_rows = true;
-	$regexpression = "/^ *(CREATE|INSERT|UPDATE|DELETE|DROP)/i";
+	$regexpression = "/^\s*(CREATE|INSERT|UPDATE|DELETE|DROP)/i";
 	if ( preg_match($regexpression, trim($query_text)) ) {
 		$return_rows = false;
 	}
