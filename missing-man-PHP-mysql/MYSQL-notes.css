@@ -69,14 +69,15 @@ mysql> SELECT first_name
 /*	CREATE
 /*--------------------------------------------------*/
 
-CREATE TABLE users (		/* Create table, with columns user_id...   int, VARCHAR - is a type of data in the column */
-	user_id int,
-	first_name VARCHAR(20),
-	last_name VARCHAR(30),
-	email VARCHAR(50),
-	facebook_url VARCHAR(100),
-	twitter_handle VARCHAR(20)
-);
+CREATE TABLE `users` (
+	`user_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`first_name` varchar(20) NOT NULL,
+	`last_name` varchar(30) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`facebook_url` varchar(100) DEFAULT NULL,
+	`twitter_handle` varchar(20) DEFAULT NULL,
+	`hobby` varchar(30) DEFAULT NULL
+)
 
 /*--------------------------------------------------*/
 /*	DESCRIBE
@@ -152,6 +153,8 @@ UPDATE users SET hobby = 'soccer' WHERE first_name = 'Artem';
 
 /* modify columns attributes. In this case added auto_increment atrr and primary key atrr */
 ALTER TABLE users MODIFY COLUMN user_id INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE users ALTER COLUMN user_id INT NOT NULL;
 
 
 
