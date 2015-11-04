@@ -46,7 +46,8 @@
 		<div id="content">
 			<p>Here's a record of what informaiton you submitted:</p>
 			<p>
-				Name: <?php echo $first_name . " " . $last_name; ?><br />
+				Name: <?php echo $first_name;?><br />
+				Last Name: <?php echo $last_name;?><br />
 				Email Adress: <?php echo $email; ?><br />
 				<a href="<?php echo $facebook_link; ?>">Your facebook page</a><br />
 				<a href="<?php echo $twitter_url; ?>">Checkout your Twitter feed</a><br />
