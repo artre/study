@@ -137,6 +137,10 @@ CONSTRAINT {CONSTRAINT_NAME} DEFAULT {DEFAULT_VALUE}
 [WITH VALUES]
 
 
+/* modify columns attributes. In this case added auto_increment atrr and primary key atrr */
+ALTER TABLE users MODIFY COLUMN user_id INT AUTO_INCREMENT PRIMARY KEY;
+
+ALTER TABLE users ALTER COLUMN user_id INT NOT NULL;
 
 
 /*--------------------------------------------------*/
@@ -147,14 +151,7 @@ CONSTRAINT {CONSTRAINT_NAME} DEFAULT {DEFAULT_VALUE}
 UPDATE users SET hobby = 'soccer' WHERE first_name = 'Artem';
 
 
-/*--------------------------------------------------*/
-/*	ALTER
-/*--------------------------------------------------*/
 
-/* modify columns attributes. In this case added auto_increment atrr and primary key atrr */
-ALTER TABLE users MODIFY COLUMN user_id INT AUTO_INCREMENT PRIMARY KEY;
-
-ALTER TABLE users ALTER COLUMN user_id INT NOT NULL;
 
 
 

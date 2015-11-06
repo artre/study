@@ -2,5 +2,12 @@
 
 artem$  php regex.php
 
+/* You can path path request parameters through the url */
+[scheme]://[domain-name]/[location-of-file]?[request-paramaters]
+/* example */
+http://localhost:8888/study/missing-man-PHP-mysql/ch07/scripts/show_user.php?user_id=1
 
+$user_id = $_REQUEST['user_id']; /* in this case $user_id = 1 */
+
+<a href="javascript:history.go(-1);"> /* link which take you to the previous page */
 

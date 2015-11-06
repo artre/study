@@ -9,7 +9,7 @@
 		<div id="content">
 			<h1>Join the Missing Manual Social Club</h1>
 			<p>Please enter your online connections below:</p>
-			<form action="scripts/create_user.php" method="POST">
+			<form action="scripts/create_user.php" method="POST" enctype="multipart/form-data">
 				<fieldset>
 					<label for="first_name">First Name:</label>
 					<input type="text" name="first_name" size="20" /><br/>
@@ -23,6 +23,10 @@
 					<input type="text" name="twitter_handle" size="20" /><br/>
 					<label for="hobby">Hobby</label>
 					<input type="text" name="hobby" size="20" /><br/>
+					<label for="user_pic">Upload a picture:</label>
+					<input type="file" name="user_pic" size="30" /><br/>
+					<label for="bio">Bio:</label>
+					<textarea name="bio" cols="50" rows="10"></textarea>
 				</fieldset>
 				<br/>
 				<fieldset class="center">

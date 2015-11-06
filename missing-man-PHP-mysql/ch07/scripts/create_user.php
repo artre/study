@@ -26,14 +26,20 @@
 	}
 	
 	$hobby = trim($_REQUEST['hobby']);
+	$bio = trim($_REQUEST['bio']);
 	
 	
-	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby) ".
-					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}');";
+	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio) ".
+					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}');";
 					
 	// Inser the user into the database
 	mysql_query($insert_sql)
 		or die(mysql_error());
+		
+	// Redirect the user to the page that displays user information
+	header("Location: show_user.php?user_id=" . mysql_insert_id());
+	exit();
+		
 ?>
 
 <html>
@@ -52,6 +58,9 @@
 				<a href="<?php echo $facebook_link; ?>">Your facebook page</a><br />
 				<a href="<?php echo $twitter_url; ?>">Checkout your Twitter feed</a><br />
 				Hobby: <?php echo $hobby; ?><br />
+			</p>
+			<p>Bio:<br/>
+				<?php echo $bio; ?>
 			</p>
 		</div>
 		<div id="footer"></div>
