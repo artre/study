@@ -70,7 +70,9 @@ git reset --hard HEAD^1  		/*will take you back one commit from what you pulled.
 
 git remote -v 		/*will show you what your remotes are*/
 
-git push --set-upstream origin master   		/*set remote branch to track local branch (To push the current branch and set the remote as upstream, use)*/
+
+git branch -u origin/master 		/* set remote branch to track local branch ( link - http://stackoverflow.com/questions/520650/make-an-existing-git-branch-track-a-remote-branch )*/
+git push --set-upstream origin master   		/* (sometimes doesn't work) set remote branch to track local branch (To push the current branch and set the remote as upstream, use)*/
 
 So, we need to make an UPSTREAM remote
 Something you can pull the latest code from
