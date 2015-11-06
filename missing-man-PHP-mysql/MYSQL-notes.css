@@ -32,25 +32,59 @@ mysql> show tables
 +-----------------------------------+
 
 
+/*--------------------------------------------------*/
+/*	SELECT
+/*--------------------------------------------------*/	
 
-select * from {table_name}    /* show all data in table */
+SELECT * FROM {table_name}    /* show all data in table */
 
-select {column_name} from {table_name}		/* show all data from column from table */
+SELECT {column_name} FROM {table_name}		/* show all data from column from table */
 
 SELECT engine, comment
 FROM engines
 WHERE support = 'no';		/* show data from columns ENGINE and COMMENT, from table ENGINES, where SUPPORT value is equal to 'no' */
 
-mysql> CREATE TEBLE users (		/* Create table, with columns user_id...   int, VARCHAR - is a type of data in the column */
-	user_id int,
-	first_name VARCHAR(20),
-	last_name VARCHAR(30),
-	email VARCHAR(50),
-	facebook_url VARCHAR(100),
-	twitter_handle VARCHAR(20)
-);
 
-DESCRIBE {table_name};	or DESC {table_name};	/* show the structure of this table. Both DESCRIBE and DESC are valic commands and both do the same */
+/* select only columns you want */
+mysql> SELECT first_name, last_name, twitter_handle FROM users;
++------------+------------+--------------------+
+| first_name | last_name  | twitter_handle     |
++------------+------------+--------------------+
+| Mike       | Greenfield | @greenfieldguitars |
++------------+------------+--------------------+
+
+
+/* show first_name for users with last_name = 'Kovalyk' */
+mysql> SELECT first_name
+    -> FROM users
+    -> WHERE last_name = 'Kovalyk';
++------------+
+| first_name |
++------------+
+| Artem      |
+| Alina      |
++------------+
+
+/*--------------------------------------------------*/
+/*	CREATE
+/*--------------------------------------------------*/
+
+CREATE TABLE `users` (
+	`user_id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`first_name` varchar(20) NOT NULL,
+	`last_name` varchar(30) NOT NULL,
+	`email` varchar(50) NOT NULL,
+	`facebook_url` varchar(100) DEFAULT NULL,
+	`twitter_handle` varchar(20) DEFAULT NULL,
+	`hobby` varchar(30) DEFAULT NULL
+)
+
+/*--------------------------------------------------*/
+/*	DESCRIBE
+/*--------------------------------------------------*/
+
+/* show the structure of this table. Both DESCRIBE and DESC are valic commands and both do the same */
+DESCRIBE {table_name};	or DESC {table_name};	
 
 mysql> DESC users;
 +----------------+--------------+------+-----+---------+-------+
@@ -65,8 +99,15 @@ mysql> DESC users;
 +----------------+--------------+------+-----+---------+-------+
 
 
+/*--------------------------------------------------*/
+/*	DROP
+/*--------------------------------------------------*/
 DROP TABLE {table_name};		/* delete table */
 
+
+/*--------------------------------------------------*/
+/*	INSERT
+/*--------------------------------------------------*/
 
 INSERT INTO users		/* insert valuses in to tabel "users" */
 	VALUES (1, "Mike", "Greenfield", "mike@greenfieldguitars.com",
@@ -74,7 +115,6 @@ INSERT INTO users		/* insert valuses in to tabel "users" */
 	"@greenfieldguitars");
 	
 /* here is the result of INSERT command */
-
 mysql> SELECT * FROM users;
 +---------+------------+------------+----------------------------+---------------------------------------------------+--------------------+
 | user_id | first_name | last_name  | email                      | facebook_url                                      | twitter_handle     |
@@ -83,40 +123,38 @@ mysql> SELECT * FROM users;
 +---------+------------+------------+----------------------------+---------------------------------------------------+--------------------+
 
 
-/* select only columns you want */
+/*--------------------------------------------------*/
+/*	ALTER
+/*--------------------------------------------------*/
 
-mysql> SELECT first_name, last_name, twitter_handle FROM users;
-+------------+------------+--------------------+
-| first_name | last_name  | twitter_handle     |
-+------------+------------+--------------------+
-| Mike       | Greenfield | @greenfieldguitars |
-+------------+------------+--------------------+
+/* add column to the table */
+ALTER TABLE users ADD hobby varchar(30);
 
-
-/* show first_name for users with last_name = 'Kovalyk' */
-
-mysql> SELECT first_name
-    -> FROM users
-    -> WHERE last_name = 'Kovalyk';
-+------------+
-| first_name |
-+------------+
-| Artem      |
-| Alina      |
-+------------+
+/* Syntax */
+ALTER TABLE {TABLENAME} 
+ADD {COLUMNNAME} {TYPE} {NULL|NOT NULL} 
+CONSTRAINT {CONSTRAINT_NAME} DEFAULT {DEFAULT_VALUE}
+[WITH VALUES]
 
 
 
 
+/*--------------------------------------------------*/
+/*	UPDATE
+/*--------------------------------------------------*/
+
+/* update value in table 'users', in column 'hobby' where first name is 'Artem' */
+UPDATE users SET hobby = 'soccer' WHERE first_name = 'Artem';
 
 
+/*--------------------------------------------------*/
+/*	ALTER
+/*--------------------------------------------------*/
 
+/* modify columns attributes. In this case added auto_increment atrr and primary key atrr */
+ALTER TABLE users MODIFY COLUMN user_id INT AUTO_INCREMENT PRIMARY KEY;
 
-
-
-
-
-
+ALTER TABLE users ALTER COLUMN user_id INT NOT NULL;
 
 
 
