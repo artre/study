@@ -105,7 +105,7 @@ Setting up ssh keys. Cloning repository from Github
 
 /*After you clone repo, it may clone repo with a project folder. Cut everything from project folder and paste it in to your current project folder.*/
 
-9. git add remote production git@github.com:Seepolls/seepolls.git  /*add ‘production’ (usually called ‘upstream’) repo. You can pull from production repo, but you can’t push to it. You can push to it only if you have https://github.com/Seepolls username and password.*/
+9. git remote add production git@github.com:Seepolls/seepolls.git  /*add ‘production’ (usually called ‘upstream’) repo. You can pull from production repo, but you can’t push to it. You can push to it only if you have https://github.com/Seepolls username and password.*/
 
 
 
