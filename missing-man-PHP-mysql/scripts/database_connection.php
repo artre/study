@@ -1,5 +1,5 @@
 <?php
-	require 'app_config.php';
+	require_once 'app_config.php';
 	
 	mysql_connect(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD)
 		or die("<p>Error connecting to database: " . mysql_error() . "</p>");

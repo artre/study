@@ -1,6 +1,8 @@
 <?php
 	require_once '../../scripts/database_connection.php';
 	
+	$upload_dir = HOST_WWW_ROOT . "uploads/profile_pics/";
+	$image_filename = "user_pic";
 	
 	$first_name = trim($_REQUEST['first_name']);
 	$last_name = trim($_REQUEST['last_name']);

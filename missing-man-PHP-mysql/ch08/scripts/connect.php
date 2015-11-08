@@ -1,8 +1,8 @@
 <?php
 	require_once '../../scripts/app_config.php';
 	
-	mysql_connect(DATABASE_HOST, DATABASE_USERNAME, DATABASE_PASSWORD)
-		or die("<p>Error connecting to database: " . mysql_error() . "</p>");
+	mysql_connect(DATABASE_HOST, DATABASE_USERNAME, "foo")
+		or handle_error("There was a problem connecting to the database that holds the information we need to get you connected.", mysql_error());		
 	
 	echo "<p>Connected to MySQL!";
 	

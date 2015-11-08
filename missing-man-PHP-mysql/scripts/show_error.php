@@ -1,8 +1,16 @@
 <?php
+	require_once 'app_config.php';
+	
 	if (isset($_REQUEST['error_message'])) {
 		$error_message = preg_replace("/\\\\/", '', $_REQUEST['error_message']);
 	} else {
 		$error_message = "Something went wrong, and that's how you ended up here.";
+	}
+	
+	if (isset($_REQUEST['system_error_message'])) {
+		$system_error_message = preg_replace("/\\\\/", '', $_REQUEST['system_error_message']);
+	} else {
+		$system_error_message = "No system-level error message was reported.";
 	}
 ?>
 <html>
@@ -28,6 +36,10 @@
 			want to come back a bit later. We bet we'll have things figured
 			out by then. Thanks again... we'll see you soon. And again, we're
 			really sorry for the inconvenience.</p>
+			<?php
+				debug_print("<hr />");
+				debug_print("<p>The following system-level message was received: <b>{$system_error_message}</b></p>");	
+			?>
 		</div>
 		<div id="footer"></div>
 	</body>
