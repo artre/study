@@ -20,7 +20,14 @@ function handle_error($user_error_message, $system_error_message) {
 define("SITE_ROOT", "http://localhost:8888/study/missing-man-PHP-mysql/");
 
 // Location of web files on host
-define("HOST_WWW_ROOT", "/Volumes/Macintosh HD/Applications/MAMP/htdocs/study/missing-man-PHP-mysql/images")
+define("HOST_WWW_ROOT", "/Volumes/Macintosh HD/Applications/MAMP/htdocs/study/missing-man-PHP-mysql/");
+$image_fieldname = "user_pic";
+
+// Potanitial PHP upload errors
+$php_errors = array(1 => 'Maximum file size in php.ini exceeded',
+					2 => 'Maximum file size in HRML form exceeded',
+					3 => 'Only part of the file was uploaded',
+					4 => 'No file was selected to upload');
 	
 // Database connection constants
 define("DATABASE_HOST", "localhost");

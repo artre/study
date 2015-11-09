@@ -2,7 +2,7 @@
 	require_once '../../scripts/database_connection.php';
 	
 	$upload_dir = HOST_WWW_ROOT . "uploads/profile_pics/";
-	$image_filename = "user_pic";
+	$image_fieldname = "user_pic";
 	
 	$first_name = trim($_REQUEST['first_name']);
 	$last_name = trim($_REQUEST['last_name']);
@@ -30,7 +30,20 @@
 	$hobby = trim($_REQUEST['hobby']);
 	$bio = trim($_REQUEST['bio']);
 	
+	// Make sure we didn't have an error uploading the image
+	($_FILES[$image_fieldname]['error'] == 0)
+		or handle_error("the server couldn't upload the image you selected.", $php_errors[$_FILES[$image_fieldname]['error']]);
+		
+	// Is this file the result of a valid upload?
+	@is_uploaded_file($_FILES[$image_fieldname]['tmp_name'])
+		or handle_error("you were trying to do something naughty. Shame on you!", "Uploaded request: file named " . "'{$_FILES[$image_fieldname]['tmp_name']}'");
+		
+	// Is this actually an image?
+	@getimagesize($_FILES[$image_fieldname]['tmp_name'])
+		or handle_error("you selected a file for your picture that isn't an image.",
+		"{$_FILES[$image_fieldname]['tmp_name']} isn't a valid image file.");	
 	
+	// Interact with MySQL
 	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio) ".
 					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}');";
 					
