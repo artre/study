@@ -1,9 +1,6 @@
 <?php
 	require_once '../../scripts/database_connection.php';
 	
-	$upload_dir = HOST_WWW_ROOT . "uploads/profile_pics/";
-	$image_fieldname = "user_pic";
-	
 	$first_name = trim($_REQUEST['first_name']);
 	$last_name = trim($_REQUEST['last_name']);
 	$email = trim($_REQUEST['email']);
@@ -30,6 +27,9 @@
 	$hobby = trim($_REQUEST['hobby']);
 	$bio = trim($_REQUEST['bio']);
 	
+	$upload_dir = HOST_WWW_ROOT . "uploads/profile_pics/";
+	$image_fieldname = "user_pic";
+	
 	// Make sure we didn't have an error uploading the image
 	($_FILES[$image_fieldname]['error'] == 0)
 		or handle_error("the server couldn't upload the image you selected.", $php_errors[$_FILES[$image_fieldname]['error']]);
@@ -41,7 +41,18 @@
 	// Is this actually an image?
 	@getimagesize($_FILES[$image_fieldname]['tmp_name'])
 		or handle_error("you selected a file for your picture that isn't an image.",
-		"{$_FILES[$image_fieldname]['tmp_name']} isn't a valid image file.");	
+		"{$_FILES[$image_fieldname]['tmp_name']} isn't a valid image file.");
+		
+	// Name the file uniquely
+	$now = time();
+	while (file_exists($upload_filename = $upload_dir . $now . '-' . $_FILES[$image_fieldname]['name'])) {
+		$now++;
+	}
+	
+	// Finally, move the file to its permanent location
+	@move_uploaded_file($_FILES[$image_fieldname]['tmp_name'], $upload_filename)
+		or handle_error("we had a problem saving your image to its permanent location.",
+						"permissions or related error moving file to {$upload_filename}");
 	
 	// Interact with MySQL
 	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio) ".
