@@ -11,20 +11,22 @@ $select_query = "SELECT * FROM users WHERE user_id = " . $user_id;
 // Run the query
 $result = mysql_query($select_query);
 if ($result) {
-  $row = mysql_fetch_array($result);
-  $first_name     = $row['first_name'];
-  $last_name      = $row['last_name'];
-  $bio       = preg_replace("/[\r\n]+/", "</p><p>", $row['bio']);
-  $email          = $row['email'];
-  $facebook_url   = $row['facebook_url'];
-  $twitter_handle = $row['twitter_handle'];
-
-  // Turn $twitter_handle into a URL
-  $twitter_url = "http://www.twitter.com/" . 
-                 substr($twitter_handle, $position + 1);
-
-  // To be added later
-  $user_image = "../../images/missing_user.png";
+	$row = mysql_fetch_array($result);
+	$first_name     = $row['first_name'];
+	$last_name      = $row['last_name'];
+	$bio       = preg_replace("/[\r\n]+/", "</p><p>", $row['bio']);
+	$email          = $row['email'];
+	$facebook_url   = $row['facebook_url'];
+	$twitter_handle = $row['twitter_handle'];
+	$user_image		= get_web_path($row['user_pic_path']);
+	
+	// Turn $twitter_handle into a URL
+	$twitter_url = "http://www.twitter.com/" . 
+	             substr($twitter_handle, $position + 1);
+	if ($user_image === NULL){
+		$user_image = "../../images/missing_user.png";
+	}
+	// To be added later
 } else {
   die("Error locating user with ID {$user_id}");
 }

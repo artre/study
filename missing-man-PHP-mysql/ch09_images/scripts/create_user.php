@@ -55,8 +55,8 @@
 						"permissions or related error moving file to {$upload_filename}");
 	
 	// Interact with MySQL
-	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio) ".
-					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}');";
+	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio, user_pic_path) ".
+					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}', '{$upload_filename}');";
 					
 	// Inser the user into the database
 	mysql_query($insert_sql)

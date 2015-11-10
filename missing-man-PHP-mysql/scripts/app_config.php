@@ -16,6 +16,10 @@ function handle_error($user_error_message, $system_error_message) {
 	exit();
 }
 
+function get_web_path($file_system_path) {
+	return str_replace('/Volumes/Macintosh HD'.$_SERVER['DOCUMENT_ROOT'], '', $file_system_path);
+}
+
 // Site root
 define("SITE_ROOT", "http://localhost:8888/study/missing-man-PHP-mysql/");
 
