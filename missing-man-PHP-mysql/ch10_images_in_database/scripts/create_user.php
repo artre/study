@@ -50,8 +50,16 @@
 	}
 	
 	// Interact with MySQL
-	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio, user_pic_path) ".
-					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}', '{$upload_filename}');";
+	$insert_sql = sprintf("INSERT INTO users (first_name, last_name, email, bio, facebook_url, twitter_handle, hobby) " .
+							"VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');",
+							mysql_real_escape_string($first_name),
+							mysql_real_escape_string($last_name),
+							mysql_real_escape_string($email),
+							mysql_real_escape_string($bio),
+							mysql_real_escape_string($facebook_url),
+							mysql_real_escape_string($twitter_handle),
+							mysql_real_escape_string($hobby)
+						);
 					
 	// Inser the user into the database
 	mysql_query($insert_sql)
@@ -64,6 +72,16 @@
 	$image_mime_type = $image_info['mime'];
 	$image_size = $image['size'];
 	$image_data = file_get_contents($image['tmp_name']);
+	
+	$insert_image_sql = sprintf("INSERT INTO images (filename, mime_type, file_size, image_data) ".
+								"VALUES ('%s', '%s', '%d', '%s');",
+								mysql_real_escape_string($image_filename),
+								mysql_real_escape_string($image_mime_type),
+								mysql_real_escape_string($image_size),
+								mysql_real_escape_string($image_data)
+							);
+	mysql_query($insert_image_sql)
+		or die(mysql_error());
 		
 	// Redirect the user to the page that displays user information
 	header("Location: show_user.php?user_id=" . mysql_insert_id());
