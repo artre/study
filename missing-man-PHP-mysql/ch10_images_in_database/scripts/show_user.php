@@ -6,7 +6,7 @@ require_once '../../scripts/database_connection.php';
 $user_id = $_REQUEST['user_id'];
 
 // Build the SELECT statement
-$select_query = "SELECT * FROM users WHERE user_id = " . $user_id;
+$select_query = sprintf("SELECT * FROM users WHERE user_id = %d", $user_id);
 
 // Run the query
 $result = mysql_query($select_query);
@@ -19,6 +19,12 @@ if ($result) {
 	$facebook_url   = $row['facebook_url'];
 	$twitter_handle = $row['twitter_handle'];
 	$user_image		= get_web_path($row['user_pic_path']);
+	//$profile_pic_id = $row['profile_pic_id'];
+	$image_id = $row['profile_pic_id'];
+	
+	$image_query = sprintf("SELECT * FROM images WHERE image_id = %d",
+	$profile_pic_id);
+	$image_result = mysql_query($image_query);
 	
 	// Turn $twitter_handle into a URL
 	$twitter_url = "http://www.twitter.com/" . 
@@ -28,7 +34,9 @@ if ($result) {
 	}
 	// To be added later
 } else {
-  die("Error locating user with ID {$user_id}");
+	handle_error("There was a problem finding your " .
+	"information in our system.",
+	"Error locating user with ID {$user_id}");
 }
 
 ?>                                  
@@ -45,8 +53,10 @@ if ($result) {
   <div id="content">
     <div class="user_profile">
       <h1><?php echo "{$first_name} {$last_name}"; ?></h1>
-      <p><img src="<?php echo $user_image; ?>" class="user_pic" />
-        <?php echo $bio; ?></p>
+      <p>
+	    <img src="show_image.php?image_id=<?php echo $image_id; ?>" class="user_pic" />
+        <?php echo $bio; ?>
+      </p>
       <p class="contact_info">Get in touch with <?php echo $first_name; ?>:</p>
       <ul>
         <li>...by emailing them at

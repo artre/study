@@ -48,25 +48,8 @@
 	while (file_exists($upload_filename = $upload_dir . $now . '-' . $_FILES[$image_fieldname]['name'])) {
 		$now++;
 	}
-	
-	// Interact with MySQL
-	$insert_sql = sprintf("INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio, profile_pic_id) " .
-							"VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s');",
-							mysql_real_escape_string($first_name),
-							mysql_real_escape_string($last_name),
-							mysql_real_escape_string($email),
-							mysql_real_escape_string($facebook_url),
-							mysql_real_escape_string($twitter_handle),
-							mysql_real_escape_string($hobby),
-							mysql_real_escape_string($bio),
-							mysql_insert_id()
-						);
 					
-	// Inser the user into the database
-	mysql_query($insert_sql)
-		or die(mysql_error());
-		
-	$user_id = mysql_insert_id();
+	
 		
 	// Insert the image into the images table
 	$image = $_FILES[$image_fieldname];
@@ -86,8 +69,24 @@
 	mysql_query($insert_image_sql)
 		or die(mysql_error());
 		
+	// Interact with MySQL
+	$insert_sql = sprintf("INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio, profile_pic_id) " .
+							"VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d');",
+							mysql_real_escape_string($first_name),
+							mysql_real_escape_string($last_name),
+							mysql_real_escape_string($email),
+							mysql_real_escape_string($facebook_url),
+							mysql_real_escape_string($twitter_handle),
+							mysql_real_escape_string($hobby),
+							mysql_real_escape_string($bio),
+							mysql_insert_id()
+						);
+	// Inser the user into the database
+	mysql_query($insert_sql)
+		or die(mysql_error());
+		
 	// Redirect the user to the page that displays user information
-	header("Location: show_user.php?user_id=" . $user_id);
+	header("Location: show_user.php?user_id=" .  mysql_insert_id());
 	exit();
 		
 ?>
