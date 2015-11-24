@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Petersens Hunting</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css">
+			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
+			#outlook a{padding:0;} /* Force Outlook to provide a "view in browser" message */
+			.ReadMsgBody{width:100%;} .ExternalClass{width:100%;} /* Force Hotmail to display emails at full width */
+			.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} /* Force Hotmail to display normal line spacing */
+			body, table, td, a, li, blockquote{-webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;} /* Prevent WebKit and Windows mobile changing default text sizes */
+			table, td{mso-table-lspace:0pt; mso-table-rspace:0pt;} /* Remove spacing between tables in Outlook 2007 and up */
+			img{-ms-interpolation-mode:bicubic;} /* Allow smoother rendering of resized image in Internet Explorer */
+			/* /\/\/\/\/\/\/\/\/ RESET STYLES /\/\/\/\/\/\/\/\/ */
+			img{border:0; /* height:auto; */ line-height:100%; outline:none; text-decoration:none;}
+			table{border-collapse:collapse ;}
+			body, #bodyTable, #bodyCell{height:100% ; margin:0; padding:0; /* width:100% ; */}
+			
+			body {
+				font-family: Helvetica, Arial, sans-serif;
+				margin:0; 
+				padding:0;
+			}
+			/* /\/\/\/\/\/\/\/\/ TEMPLATE STYLES /\/\/\/\/\/\/\/\/ */
+			/* ========== Page Styles ========== */
+			#bodyCell{padding:0;}
+			#templateContainer{width:100%;}
+			body, #bodyTable{
+				 background-color:#DEE0E2;
+			}
+			.preheaderContent{
+				color:#808080;
+				font-family:Helvetica;
+				font-size:10px;
+				line-height:125%;
+				text-align:left;
+				text-align: center; 
+				padding-top:10px; 
+				padding-right:20px; 
+				padding-bottom:10px; 
+				padding-left:0;
+			}			
+			.preheaderContent a:link, .preheaderContent a:visited, /* Yahoo! Mail Override */ .preheaderContent a .yshortcuts /* Yahoo! Mail Override */{
+				color:#606060;
+				font-weight:normal;
+				text-decoration:underline;
+			}
+			
+			
+			
+			/* HEADER */
+			.btn-social {
+				width: 40px;
+			}
+			#social-twitter {width: 25px;}
+			#header {
+				padding-top: 20px;
+				padding-bottom: 15px ;
+			}
+			#social {
+				padding-left: 30px;
+				padding-top: 30px ;
+			}
+			#save {
+				padding-top: 10px;
+				color: #ffffff; 
+				font-size: 20px; 
+				font-weight: 500; 
+				text-decoration: none; 
+				padding-left: 15px;
+			}
+			#mag {
+				padding-top: 10px;
+				padding-right: 10px;
+			}
+			
+			/* DATE */
+			#date {
+				font-size: 11px; 
+				font-style: italic; 
+				color: #888888; 
+				padding-top: 15px; 
+				padding-right: 30px; 
+				padding-bottom: 10px; 
+				padding-left: 30px;
+			}
+			
+			/* MAIN SECTION */
+			#main-section {
+				padding-right: 20px;
+				padding-left: 20px;
+				padding-top: 10px; 
+				padding-bottom: 0; 
+			}
+			.tag {
+				font-size: 16px;
+				padding-top: 12px; 
+				padding-bottom: 8px; 
+				padding-left: 10px; 
+				padding-right: 10px; 
+				font-weight: 600; 
+				color: #698640;
+			}
+			.title {
+				padding-bottom: 30px;
+				padding-left: 10px; 
+				padding-right: 10px;
+			}
+			
+			#first-td {
+				padding-left: 10px; 
+				padding-right: 10px;
+			}
+			/* First Ad */
+			#first-ad-td {
+				padding-left: 10px;
+			}
+			
+			/* SECOND SECTION */
+			#second-section {
+				padding-top: 40px;
+				padding-right: 30px;
+				padding-left: 30px;
+			}
+			#tsc-box {
+				padding-left: 20px;
+				padding-top: 20px; 
+				padding-right: 15px; 
+				padding-bottom: 20px;
+
+			}
+			#tsc-on {
+				padding-left: 20px;
+				font-size: 13px;
+				color: #ffffff; 
+			}
+			#tsc-a {
+				max-height: 31px;
+			}
+			.tsc-title {
+				font-size: 20px;
+				font-weight: 600; 
+				padding-bottom: 5px;
+			}
+			.tsc-time {
+				font-size: 12px;
+			}
+			.sweeps {
+				width: 255px;
+			}
+			.sweeps-1 {
+				padding-right: 30px;
+				padding-top: 40px;
+			}
+			#sweeps-title-1 {
+				padding-right: 30px;
+				padding-bottom: 10px;
+			}
+			#sweeps-button {
+				padding-bottom: 30px;
+			}
+			#tag-sweeps {
+				padding-left: 0;
+			}
+			#sweeps-title-1 {
+				padding-left: 0;
+			}
+			#tag-shop {
+				padding-left: 0;
+			}
+			#shop-title {
+				padding-left: 0;
+				padding-bottom: 10px;
+			}
+			#sweeps-title-1-a {
+				font-size: 20px; 
+				font-weight: 900; 
+				color: #222222; 
+				line-height: 26px; 
+				text-decoration: none;
+			}
+			#sweeps-title-2-a {
+				font-size: 20px; 
+				font-weight: 900; 
+				color: #222222; 
+				line-height: 26px; 
+				text-decoration: none;
+			}
+			#sweeps-td-2 {
+				padding-top: 40px;
+			}
+			
+			/* MORE STORIES */
+			#more-stories {
+				padding-right: 30px;
+				padding-left: 30px;
+				padding-top: 30px; 
+				padding-bottom: 30px; 
+			}
+			#more-rows {
+				padding-left: 0;
+				padding-bottom: 40px;
+			}
+			#more-heading {
+				padding-left: 0;
+				font-size: 30px; 
+				font-weight: 900; 
+				padding-bottom: 15px; 
+			}
+			#second-ad-td {
+				text-align: center;
+				padding-bottom: 20px;
+			} 
+			#more-sponsored { 
+				font-size: 14px;
+				padding-top: 15px; 
+				color: #698640; 
+				font-weight: 600;
+			}
+			.more-item {
+				padding-top: 15px; 
+				padding-bottom: 15px; 
+				border-bottom: 1px solid #aaaaaa;
+			}
+			.more-a {
+				font-weight: 600; 
+				font-size: 18px; 
+				color: #222222; 
+				text-decoration: none;
+			}
+		
+			/* FOOTER */
+			#footer-td {
+				padding-top: 20px; 
+				padding-right: 15px; 
+				padding-bottom: 40px; 
+				padding-left: 15px;
+			}
+			
+			
+			
+			@media only screen and (max-width: 599px)  {
+				#bodyTable {width: 320px !important;}
+				
+				/* HEADER */
+				#header { padding-bottom: 20px !important;}
+				#header a:hover {color: #fffec7 !important;}
+				#social { padding-top: 25px !important;}
+				#subscribe {padding-left: 15px !important;}
+				#subscribe-table {width: 220px !important;}
+				#save {padding-top: 30px !important; }
+				#mag {padding-top: 24px !important;}
+				#date {text-align: center !important;}
+				
+				
+				/* MAIN SECTION */
+				#first-post {width: 100% !important;}
+				#first-img {width: 100% !important; height: auto !important;}
+				#second-post {width: 100% !important;}
+				#second-img {width: 100% !important; height: auto !important;}
+				#third-post {width: 100% !important;}
+				#third-img {width: 100% !important; height: auto !important;}
+				#first-ad {width: 100% !important;}
+				#first-ad-td {text-align: center !important;padding-left: 0 !important;}
+				
+				#main-section {padding-right: 10px !important; padding-left: 10px !important;}
+				.tag {font-size: 15px !important; }
+				.title a {font-size: 20px !important;line-height: 26px !important;}
+				#first-ad-td {padding-bottom: 40px !important;}
+				
+				/* SECOND SECTION */
+				.sweeps {width: 100% !important;}
+				.sweeps-img {width: 100% !important; height: auto !important;}
+				#second-section {padding-top: 30px !important; padding-right: 20px !important; padding-left: 20px !important;}
+				.sweeps-1 {padding-right: 0 !important;}
+				#tsc-on {width: 99px;text-align: center !important;line-height: 31px !important; font-size: 12px !important;padding-left: 0 !important;}
+				.tsc-img {width: 100px !important;height: 70px !important;}
+				#tsc-box {padding-left: 0 !important;}
+				.tsc-time {font-size: 11px !important;color: #555555 !important;}
+				#sweeps-title-1 {padding-right: 0 !important;}
+				#sweeps-td-2 {padding-top: 0 !important;}
+				
+				/* MORE STORIES */ 
+				#more-stories {padding-right: 10px !important; padding-left: 10px !important;}
+				#more-heading {padding-left: 10px !important;}
+				#more-list {width: 100% !important;}
+				#more-rows {padding-right: 10px !important;padding-left: 10px !important;}
+				#more-sponsored {font-size: 13px !important;}
+				
+			}
+			
+			@media only screen and (min-width: 321px) and (max-width: 599px)  {
+				#bodyTable {width: 100% !important;}
+				#bodyCell {padding-left: 20px !important; padding-right: 20px !important;}
+				
+				#subscribe-table {width: 70% !important;}	
+				#tsc-on {width: 114px !important;}	
+				
+			}
+			
+			@media only screen and (min-width: 800px) {
+				
+				/* HEADER */
+				#logo-table {width: 473px !important;}
+				#logo {width: 280px ;padding-left: 40px !important;}
+				#social {padding-left: 40px !important;}
+				
+				#bodyTable {width: 800px !important;}
+				#main-section {padding-right: 30px !important;padding-left: 30px !important;}
+				
+				/* DATE */
+				#date {padding-left: 40px !important;}
+				
+				/* First Post */
+				#first-post {width: 350px !important;}
+				#first-img {width: 345px ;height: 230px !important;}
+				#first-td {padding-right: 18px !important;}
+				
+				/* Second Post */
+				#second-post {width: 345px !important;}
+				#second-img {width: 345px !important;height: 230px !important;}
+				
+				/* First Ad */
+				#first-ad-td {padding-right: 63px !important;}
+				
+				/* Third Post */
+				#third-post {width: 345px !important;}
+				#third-img {width: 345px !important;height: 230px !important;}
+				
+				/* SECOND SECTION */
+				#second-section {padding-right: 40px !important;padding-left: 40px !important;padding-bottom: 25px !important;}
+				#tsc-table {width: 300px !important;}
+				#tsc-box {padding-left: 0 !important;}
+				#tsc-on {padding-left: 0 !important;text-align: center !important;width: 150px !important;}
+				.tsc-title {font-size: 18px !important;}
+				.sweeps {width: 185px !important;}
+				.sweeps-1 {padding-top: 0 !important;padding-right: 25px !important;padding-left: 25px !important;}
+				#sweeps-title-1 {padding-right: 25px !important;padding-left: 25px !important;}
+				#sweeps-title-1-a {font-size: 22px !important;line-height: 27px !important;}
+				#sweeps-title-2-a {font-size: 22px !important;line-height: 27px !important;}
+				#sweeps-button {padding-left: 25px !important;} 
+				.sweeps-img {width: 185px !important;height: 129px !important;}
+				#tag-sweeps {padding-left: 25px !important;}
+				#sweeps-td-2 {padding-top: 0 !important;}				
+				
+				/* MORE STORIES */
+				#more-stories {padding-right: 40px !important;padding-left: 40px !important;padding-bottom: 0 !important;}
+				#more-list {width: 390px !important;}
+				#second-ad {width: 300px !important;}
+				#second-ad-td { padding-left: 30px !important;} 
+				
+			}
+		</style>
+    </head>
+    <body bgcolor="#DEE0E2" leftmargin="0" marginwidth="0" topmargin="0" marginheight="0" offset="0">
+    	<center>
+        	<table align="center" border="0" cellpadding="0" cellspacing="0" height="100%" width="600px" id="bodyTable">
+            	<tr>
+                	<td align="center" valign="top" id="bodyCell">
+                    	<!-- BEGIN TEMPLATE // -->
+                    	<table border="0" cellpadding="0" cellspacing="0" id="templateContainer">
+	                    	
+	                    	
+                        	<tr>
+                            	<td align="center" valign="top">
+                                	<!-- BEGIN PREHEADER // -->
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
+                                        <tr>
+                                            <td valign="top" width="180" class="preheaderContent" mc:edit="preheader_content01">
+                                                Email not displaying correctly? <a style="color: #076fe3;" href="*|ARCHIVE|*" target="_blank">View it in your browser</a>.
+                                            </td>
+                                            <!-- *|END:IF|* -->
+                                        </tr>
+                                    </table>
+                                    <!-- // END PREHEADER -->
+                                </td>
+                            </tr>
+                            
+                            <!-- BEGIN HEADER // -->
+                        	<tr>
+                            	<td id="header" valign="top" bgcolor="#698640">
+                                	
+                                    <table id="logo-table" border="0" cellpadding="0" cellspacing="0" width="285px" align="left">
+                                        <tr>
+	                                        <td>
+		                                        <a href="">
+			                                        <img id="logo" src="http://www.petersenshunting.com/wp-content/themes/petersenshunting/images/logo.png" width="240px" style="padding-left: 30px;">
+		                                        </a>
+	                                        </td>
+                                        </tr>
+                                        <tr>
+	                                        <td id="social">
+		                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			                                        <tr>
+				                                        <td class="btn-social" width="40px">
+					                                        <a href=""><img src="http://www.petersenshunting.com/files/2015/11/facebook.png" width="25px" height="25px"></a>
+				                                        </td>
+				                                        <td class="btn-social" width="40px">
+					                                        <a href=""><img src="http://www.petersenshunting.com/files/2015/11/twitter.png" width="25px" height="25px"></a>
+				                                        </td>
+				                                        <td>
+					                                        <a style="color: #ffffff; font-size: 11px;" href="">SEND TO A FRIEND</a>
+				                                        </td>
+			                                        </tr>
+		                                        </table>
+	                                        </td>      
+                                        </tr>
+                                    </table>
+                                    
+                                    
+                                    <table id="subscribe-table" align="left" border="0" cellpadding="0" cellspacing="0" width="200px">
+                                        <tr>
+	                                        <td id="subscribe" style="padding-left: 15px;">
+		                                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+			                                        <tr>
+				                                        <td id="save">Save 74%</td>
+			                                        </tr>
+			                                        <tr>
+				                                        <td style="padding-bottom: 10px;padding-left: 15px;"><a style="color: #ffffff; font-size: 20px; font-weight: 500; text-decoration: none; padding-top: 30px;" href="">Subscribe Now!</a></td>
+			                                        </tr>
+		                                        </table>
+		                                        
+		                                        <table bgcolor="#435726" border="0" cellpadding="0" cellspacing="0" width="100%">
+			                                        <tr>
+				                                        <td style="padding-left: 15px; padding-top: 10px; padding-bottom: 10px;">
+					                                        <a style="color: #ffffff; font-size: 10px; text-decoration: none;" href="">GIVE A GIFT</a>
+				                                        </td>
+			                                        </tr>
+			                                        <tr>
+				                                        <td style="padding-left: 15px; padding-bottom: 10px; ">
+					                                        <a style="color: #ffffff; font-size: 10px; text-decoration: none;" href="">SUBSCRIBER SERVICES</a>
+				                                        </td>
+			                                        </tr>
+		                                        </table>
+	                                        </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="85px">
+	                                    <tr>
+											<td id="mag" valign="bottom">
+											    <a href=""><img width="85px" height="116px" src="https://store.intermediaoutdoors.com/product_images/g/894/1OPH1511__14338_std.jpg"></a>
+											</td>
+	                                    </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <!-- // END HEADER -->
+                            
+                            
+                            <tr>
+	                            <td id="date" bgcolor="#ffffff" align="left">WEDNESDAY, JANUARY 24, 2015</td>
+                            </tr>
+		                            
+	                                                        
+                            <!-- BEGIN MAIN SECTION // -->
+                            <tr>
+	                            <td>
+		                            <table bgcolor="#ffffff" width="100%" border="0" cellpadding="0">
+			                            <tbody>
+				                            <tr>
+					                            <td id="main-section" valign="top">
+						                            
+						                            <table id="first-post" width="540px" border="0" align="left" cellpadding="0" cellspacing="0" >
+							                            <tbody>
+								                			<tr>
+									                			<td id="first-td" align="left" valign="top">
+										                			<a href="">
+											                			<img id="first-img" src="http://www.petersenshunting.com/files/2015/10/upland-bird-hunting-ne.jpg" width="540px" height="360px" alt="first image">
+										                			</a>
+									                			</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="tag" align="left">REVIEW</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="title" align="left">
+										                			<a href="" style="font-size: 24px; font-weight: 900; color: #222222; line-height: 32px; text-decoration: none;">Tree Stand Vs. Ground Blind: What's Best for Whitetail?</a>
+										                		</td>
+								                			</tr>         	   
+							                            </tbody>
+						                            </table>
+						                            
+						                             <table id="second-post" width="220px" border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tbody>
+								                			<tr>
+									                			<td align="left" valign="top" style="padding-left: 10px; padding-right: 10px;">
+										                			<a href="">
+											                			<img id="second-img" src="http://www.petersenshunting.com/files/2015/10/grouse-recipe.jpg" width="220px" height="147px" alt="first image">
+										                			</a>
+									                			</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="tag" align="left">SPONSORED</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="title" align="left">
+										                			<a href="" style="font-size: 24px; font-weight: 900; color: #222222; line-height: 32px; text-decoration: none;">The Living Legend: New Mauser 98</a>
+										                		</td>
+								                			</tr>         	   
+							                            </tbody>
+						                            </table>
+						                            
+						                            <table id="first-ad" width="300px" border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tbody>
+								                			<tr>
+									                			<td id="first-ad-td" align="left" valign="top">
+										                			<a href="">
+											                			<img src="http://www.petersenshunting.com/files/2015/11/ad-1.png" width="300px" height="250px" alt="first image">
+										                			</a>
+									                			</td>
+								                			</tr>
+							                            </tbody>
+						                            </table>
+						                            
+						                             <table id="third-post" width="540px" border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tbody>
+								                			<tr>
+									                			<td align="left" valign="top" style="padding-left: 10px; padding-right: 10px;">
+										                			<a href="">
+											                			<img id="third-img" src="http://www.petersenshunting.com/files/2015/11/mauser-98.gif" width="540px" height="360px" alt="first image">
+										                			</a>
+									                			</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="tag" align="left">VIDEO</td>
+								                			</tr>
+								                			<tr>
+									                			<td class="title" align="left">
+										                			<a href="" style="font-size: 24px; font-weight: 900; color: #222222; line-height: 32px; text-decoration: none;">The Living Legend: New Mauser 98</a>
+										                		</td>
+								                			</tr>         	   
+							                            </tbody>
+						                            </table>
+						                            
+					                            </td>
+				                            </tr>
+			                            </tbody>
+		                            </table>
+	                            </td>
+                            </tr>
+                            <!-- END MAIN SECTION // -->
+                            
+                            <tr><td height="10px" width="100%" bgcolor="eeeeee"></td></tr>
+                            
+                            <!-- START SECOND SECTION // -->
+                            <tr>
+	                            <td id="second-section" bgcolor="#ffffff">
+		                            <table id="tsc-table" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+			                            <tbody>
+				                            <tr>
+					                            <td>
+						                            <table border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tbody>
+								                            <tr>
+									                            <td id="tsc-on" align="left" width="360px" bgcolor="#888888">THIS WEEK ON</td>
+									                            <td><a id="tsc-a" style="display: block; max-height: 31px;" href=""><img width="181px" height="31px" src="http://www.thesportsmanchannel.com/wp-content/uploads/2014/03/sportsman-header-logo.jpg"></a></td>
+								                            </tr>
+							                            </tbody>
+						                            </table>
+					                            </td>
+				                            </tr>
+				                            <tr>
+					                            <td id="tsc-box" bgcolor="#ebebeb">
+						                            <table border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tr>
+								                            <td style="padding-right: 10px; padding-bottom: 15px;">
+									                            <a href=""><img class="tsc-img" width="121px" height="84px" src="http://www.petersenshunting.com/files/2014/07/shaming_Feature_2.jpg"></a>
+								                            </td>
+								                            <td valign="top">
+									                            <table border="0" align="left" cellpadding="0" cellspacing="0">
+										                            <tbody>
+											                            <tr>
+												                            <td class="tsc-title"><a href="#" style="text-decoration: none; color: #222222;">Bowhunter TV</a></td>
+											                            </tr>
+											                            <tr>
+												                            <td class="tsc-time">WEDNESDAYS 10:30PX ET</td>
+											                            </tr>
+										                            </tbody>
+									                            </table>
+								                            </td>
+							                            </tr>
+						                            </table>
+						                            <table border="0" align="left" cellpadding="0" cellspacing="0">
+							                            <tr>
+								                            <td style="padding-right: 10px;">
+									                            <a href=""><img class="tsc-img" width="121px" height="84px" src="http://www.petersenshunting.com/files/2015/09/HUNP-150900-OC-1.jpg"></a>
+								                            </td>
+								                            <td valign="top">
+									                            <table border="0" align="left" cellpadding="0" cellspacing="0">
+										                            <tbody>
+											                            <tr>
+												                            <td class="tsc-title"><a href="#" style="text-decoration: none; color: #222222;">Petersen's Hunting Adventures</a></td>
+											                            </tr>
+											                            <tr>
+												                            <td class="tsc-time">SATURDAYS 10:30PX ET</td>
+											                            </tr>
+										                            </tbody>
+									                            </table>
+								                            </td>
+							                            </tr>
+						                            </table>
+					                            </td>
+				                            </tr>
+				                            <tr>
+					                            <td bgcolor="#888888" align="center" style="padding-top: 10px; padding-bottom: 10px;"><a href="" style="color: #ffffff; font-size: 14px;">GET SPORTSAMN CHANNEL NOW!</a></td>
+				                            </tr>
+			                            </tbody>
+		                            </table>
+		                            
+		                            <table class="sweeps" width="280px" border="0" align="left" cellpadding="0" cellspacing="0">
+			                            <tbody>
+				                			<tr>
+					                			<td class="sweeps-1" align="left" valign="top">
+						                			<a href="">
+							                			<img class="sweeps-img" src="http://www.petersenshunting.com/files/2015/09/HUNP-150900-GL-1.jpg" width="255px" height="163px" alt="first image">
+						                			</a>
+					                			</td>
+				                			</tr>
+				                			<tr>
+					                			<td id="tag-sweeps" class="tag" align="left">SWEEPS</td>
+				                			</tr>
+				                			<tr>
+					                			<td id="sweeps-title-1" class="title" align="left">
+						                			<a id="sweeps-title-1-a" href="">Win a Whitetail Hunt to Nebraska!</a>
+						                		</td>
+				                			</tr>
+				                			<tr>
+					                			<td id="sweeps-button">
+						                			<a href="" style="font-size: 18px; color: #698640; text-decoration: none;">ENTER NOW!</a>
+					                			</td>
+				                			</tr>         	   
+			                            </tbody>
+		                            </table>
+		                            
+		                            <table class="sweeps" width="280px" border="0" align="left" cellpadding="0" cellspacing="0">
+			                            <tbody>
+				                			<tr>
+					                			<td id="sweeps-td-2" align="left" valign="top">
+						                			<a href="">
+							                			<img class="sweeps-img" src="http://www.petersenshunting.com/files/2015/08/bgf_f.jpg" width="255px" height="163px" alt="first image">
+						                			</a>
+					                			</td>
+				                			</tr>
+				                			<tr>
+					                			<td id="tag-shop" class="tag" align="left">SHOP</td>
+				                			</tr>
+				                			<tr>
+					                			<td id="shop-title" class="title" align="left">
+						                			<a id="sweeps-title-2-a" href="">2016 Petersens's Hunting Calendar</a>
+						                		</td>
+				                			</tr>
+				                			<tr>
+					                			<td style="padding-bottom: 30px;">
+						                			<a href="" style="font-size: 18px; color: #698640; text-decoration: none;">BUY NOW!</a>
+					                			</td>
+				                			</tr>         	   
+			                            </tbody>
+		                            </table>
+	                            </td>
+                            </tr>
+                            <!-- END SECOND SECTION // -->
+                            
+                            <tr><td height="10px" width="100%" bgcolor="eeeeee"></td></tr>
+                            
+                            <!-- START MORE STORIES // -->
+                            <tr>
+	                            <td id="more-stories" bgcolor="#ffffff">
+		                            <table id="more-list" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+			                            <tbody>
+				                            <tr>
+					                            <td id="more-heading">More Stories</td>
+				                            </tr>
+				                            <tr>
+					                            <td id="more-rows">
+													<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+														<tbody>
+															<tr>
+																<td class="more-item">
+																    <a class="more-a" href="">Top Predator Hunting Gear for 2015</a>
+																</td>
+															</tr>
+															<tr>
+																<td class="more-item">
+																    <a class="more-a" href="">Locating Bucks During the Mule Deer Rut</a>
+																</td>
+															</tr>
+															<tr>
+																<td class="more-item">
+																    <a class="more-a" href="">6 Tips for Planning a coues Deer Hunt</a>
+																</td>
+															</tr>
+															<tr>
+																<td id="more-sponsored">SPONSORED</td>
+															</tr>
+															<tr>
+																<td class="more-item">
+																    <a class="more-a" href="">7 Timeless Tactics Every Hunter Should Master</a>
+																</td>
+															</tr>
+															<tr>
+																<td class="more-item">
+																    <a class="more-a" href="">2015 Trail Camera Test</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+					                            </td>
+				                            </tr>
+			                            </tbody>
+		                            </table>
+		                            <table id="second-ad" width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+			                            <tbody>
+				                			<tr>
+					                			<td id="second-ad-td" align="center" valign="top">
+						                			<a href="">
+							                			<img src="http://www.petersenshunting.com/files/2015/11/upload.png" width="300px" height="250px" alt="first image">
+						                			</a>
+					                			</td>
+				                			</tr>
+			                            </tbody>
+		                            </table>
+	                            </td>
+                            </tr>
+                            <!-- END MORE STORIES // -->
+                            
+                            
+                            <!-- START FOOTER // -->
+                            <tr>
+	                            <table id="footer" width="100%" bgcolor="#698640" border="0" align="center" cellpadding="0" cellspacing="0">
+		                            <tbody>
+			                            <tr>
+				                            <td id="footer-td" align="center">
+					                            <table id="footer-social" border="0" cellpadding="0" cellspacing="0">
+						                            <tbody>
+							                            <tr>
+								                            <td class="btn-social" width="40px">
+						                                        <a href=""><img src="http://www.petersenshunting.com/files/2015/11/facebook.png" width="25px" height="25px"></a>
+					                                        </td>
+					                                        <td id="social-twitter" class="btn-social" width="25px">
+						                                        <a href=""><img src="http://www.petersenshunting.com/files/2015/11/twitter.png" width="25px" height="25px"></a>
+					                                        </td>
+							                            </tr>
+						                            </tbody>
+					                            </table>
+					                            <table align="center" border="0" cellpadding="0" cellspacing="0">
+						                            <tbody>
+							                            <tr>
+								                            <td align="center" style="padding-top: 25px; padding-bottom: 25px; color: #ffffff; font-size: 14px; line-height: 18px;">1040 6th Avenue, 12th Floor | New York, NY 10018 | Attn: Privacy Coordinator</td>
+							                            </tr>
+							                            <tr>
+								                            <td align="center" style="padding-bottom: 25px; font-size: 11px; color: #ffffff;">
+									                            <a href="" style="font-size: 11px; color: #ffffff; text-decoration: none;">Unsibscribe</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  
+									                            <a href="" style="font-size: 11px; color: #ffffff; text-decoration: none;">Newsletter Archive</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;   
+									                            <a href="" style="font-size: 11px; color: #ffffff; text-decoration: none;">Privacy Policy</a>
+								                            </td>
+							                            </tr>
+							                            <tr>
+								                            <td align="center"><a style="font-size: 14px; color: #ffffff; text-decoration: none;" href="http://www.outdoorsg.com/">© 2015 Outdoor Sportsman Group</a></td>
+							                            </tr>
+						                            </tbody>
+					                            </table>
+				                            </td>
+			                            </tr>
+		                            </tbody>
+	                            </table>
+                            </tr>
+	                        <!-- END FOOTER // -->    
+                            
+                        </table>
+                        <!-- // END TEMPLATE -->
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>
