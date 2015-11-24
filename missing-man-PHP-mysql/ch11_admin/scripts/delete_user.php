@@ -10,7 +10,8 @@
 	mysql_query($delete_query);
 	
 	// Redirect to show_users to re-show users (without this deleted one)
-	header("Location: ../show_users.php");
+	$msg = "The user you specified has been deleted.";
+	header("Location: ../show_users.php?success_message={$msg}");
 	
 	exit();
 	
