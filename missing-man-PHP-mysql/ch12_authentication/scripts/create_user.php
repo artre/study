@@ -3,6 +3,8 @@
 	
 	$first_name = trim($_REQUEST['first_name']);
 	$last_name = trim($_REQUEST['last_name']);
+	$username = trim($_REQUEST['username']);
+	$password = trim($_REQUEST['password']);
 	$email = trim($_REQUEST['email']);
 	
 	$facebook_link = str_replace("facebook.org", "facebook.com", trim($_REQUEST['facebook_url']));
@@ -53,10 +55,21 @@
 	@move_uploaded_file($_FILES[$image_fieldname]['tmp_name'], $upload_filename)
 		or handle_error("we had a problem saving your image to its permanent location.",
 						"permissions or related error moving file to {$upload_filename}");
-	
+					
 	// Interact with MySQL
-	$insert_sql = 	"INSERT INTO users (first_name, last_name, email, facebook_url, twitter_handle, hobby, bio, user_pic_path) ".
-					"VALUES ('{$first_name}','{$last_name}','{$email}', '{$facebook_link}', '{$twitter_url}', '{$hobby}', '{$bio}', '{$upload_filename}');";
+	$insert_sql = sprintf("INSERT INTO users (first_name, last_name, username, password, email, facebook_url, twitter_handle, hobby, bio, user_pic_path) " .
+							"VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
+							mysql_real_escape_string($first_name),
+							mysql_real_escape_string($last_name),
+							mysql_real_escape_string($username),
+							mysql_real_escape_string(crypt($password)),
+							mysql_real_escape_string($email),
+							mysql_real_escape_string($facebook_url),
+							mysql_real_escape_string($twitter_handle),
+							mysql_real_escape_string($hobby),
+							mysql_real_escape_string($bio),
+							mysql_real_escape_string($upload_filename)
+						);
 					
 	// Inser the user into the database
 	mysql_query($insert_sql)

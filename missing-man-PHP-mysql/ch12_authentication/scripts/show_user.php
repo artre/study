@@ -14,7 +14,7 @@ if ($result) {
 	$row = mysql_fetch_array($result);
 	$first_name     = $row['first_name'];
 	$last_name      = $row['last_name'];
-	$bio       = preg_replace("/[\r\n]+/", "</p><p>", $row['bio']);
+	$bio       		= preg_replace("/[\r\n]+/", "</p><p>", $row['bio']);
 	$email          = $row['email'];
 	$facebook_url   = $row['facebook_url'];
 	$twitter_handle = $row['twitter_handle'];
