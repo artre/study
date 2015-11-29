@@ -10,7 +10,7 @@
 	// Look up the user-provided credentials
 	$query = sprintf("SELECT user_id, username FROM users WHERE username = '%s' AND password = '%s';",
 						mysql_real_escape_string(trim($_SERVER['PHP_AUTH_USER'])),
-						mysql_real_escape_string(crypt(trim($_SERVER['PHP_AUTH_PW'])))
+						mysql_real_escape_string(crypt(trim($_SERVER['PHP_AUTH_PW']), $_SERVER['PHP_AUTH_USER']))
 					);
 	$results = mysql_query($query);
 	
