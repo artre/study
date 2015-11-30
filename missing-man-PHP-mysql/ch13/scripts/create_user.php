@@ -76,7 +76,7 @@
 		or die(mysql_error());
 		
 	// Redirect the user to the page that displays user information
-	header("Location: show_user.php?user_id=" . mysql_insert_id());
+	header("Location: ../show_user.php?user_id=" . mysql_insert_id());
 	exit();
 		
 ?>
