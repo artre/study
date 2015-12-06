@@ -1,0 +1,24 @@
+We need to tables. 
+1. Poll table to store all voters that voted for this poll, and the answer they chose, age, country, sex and other stuff(to pull out the stats)
+2. User_votes table to store all polls that this user vote in, is it starred, what answer was chosen.
+
+When you will start to plan database, whatch again video #4.3
+
+
+
+/* 1. What functions your database will acomplish */
+
+1) Store the information about the golos
+2) Store information about the user
+3) Output information from golos
+4) Insert +1 to a goloss answer
+5) Show the number of votes for a specific answer
+6) Show the number of users that voted in this golos
+7) Mark the golos as voted by a user after the user voted
+8) Mark the golos as stared if the user pushed star
+
+9) Show stats about a golos
+	a. Voters age
+	b. Voters sex
+	c. Voters country
+	
