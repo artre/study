@@ -1,6 +1,16 @@
 We need to tables. 
-1. Poll table to store all voters that voted for this poll, and the answer they chose, age, country, sex and other stuff(to pull out the stats)
-2. User_votes table to store all polls that this user vote in, is it starred, what answer was chosen.
+
+1. Table for all golos. You can also add these columns to a wp_post table. Or actually you already have these columns
+	a) Golos Title
+	b) Golos Description
+	
+2. Table 'answers' for goloss answers
+	a) Answers text
+	b) Answers number
+	c) Answers vote count
+	d) Answers image path
+
+^ We can connect table 'answers' to table 'wp_posts'. 
 
 When you will start to plan database, whatch again video #4.3
 
