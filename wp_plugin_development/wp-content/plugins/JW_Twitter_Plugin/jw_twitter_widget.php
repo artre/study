@@ -1,15 +1,16 @@
 <?php
 error_reporting(E_ALL);
 /*
-Plugin Name: Messanger
+Plugin Name: JW Twitter Widget
 Plugin URI: http://football.com
 Description: Creating Widgets
 Version: 1.0
 Author: Tomek
 Author URI: http://football.com
-*/	
+*/
 
-class Messanger extends WP_Widget {
+
+class JW_Twitter_Widget extends WP_Widget {
 	
 	function __construct() 
 	{
@@ -29,18 +30,15 @@ class Messanger extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('title');?>">Title: </label>
 			<input 
-				class="widefat"
-				id="<?php echo $this->get_field_id('title');?>"
-				name="<?php echo $this->get_field_name('title');?>"
-				value="<?php if( isset($title)) echo esc_attr($title); ?>" />
+				type="text" 
+				class="widefat" 
+				id="<?php echo $this->get_field_id('title'); ?>"
+				name="<?php echo $this->get_field_name('title'); ?>"
+				value="<?php if(isset($title)) echo esc_attr($title); ?>" 
+			/>
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('desctiption');?>">Desctiption: </label>
-			<textarea 
-				class="widefat"
-				rows="8"
-				id="<?php echo $this->get_field_id('desctiption');?>"
-				name="<?php echo $this->get_field_name('desctiption');?>"><?php if( isset($desctiption)) echo esc_attr($desctiption); ?></textarea>
+			
 		</p>
 		<?php	
 	}
@@ -70,6 +68,3 @@ function jw_register_messanger()
 {
 	register_widget('Messanger');
 }
-
-
-
