@@ -1,0 +1,40 @@
+We need to tables. 
+
+1. Table for all golos. You can also add these columns to a wp_post table. Or actually you already have these columns
+	a) Golos Title
+	b) Golos Description
+	
+2. Table 'answers' for goloss answers
+	a) Answers text
+	b) Answers number
+	c) Answers vote count
+	d) Answers image path
+
+^ We can connect table 'answers' to table 'wp_posts'. 
+
+When you will start to plan database, whatch again video #4.3
+
+
+
+/* 1. What functions your database will acomplish */
+
+1) Store the information about the golos
+	a. Answers, 
+	b. Title, 
+	c. Description, 
+	d. Numper of answes
+	e. Image aspect ratio
+	 
+2) Store information about the user
+3) Output information from golos
+4) Insert +1 to a goloss answer
+5) Show the number of votes for a specific answer
+6) Show the number of users that voted in this golos
+7) Mark the golos as voted by a user after the user voted
+8) Mark the golos as stared if the user pushed star
+
+9) Show stats about a golos
+	a. Voters age
+	b. Voters sex
+	c. Voters country
+	
