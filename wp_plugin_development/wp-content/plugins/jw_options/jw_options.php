@@ -14,6 +14,7 @@ class JW_Options
 	
 	public function __construct()
 	{
+		//delete_option('jw_plugin_options'); // to prevent errors and notices to show up
 		$this->options = get_option('jw_plugin_options');
 		$this->register_setting_and_fields();
 	}
@@ -49,15 +50,27 @@ class JW_Options
 	
 	public function register_setting_and_fields()
 	{
-		register_setting('jw_plugin_options', 'jw_plugin_options'); // 3rd param = optional cb.
+		register_setting('jw_plugin_options', 'jw_plugin_options',  array($this,'jw_validate_settings')); // 3rd param = optional cb.
 		add_settings_section('jw_main_section', 'Main Settings', array($this,'jw_main_section_cb'), __FILE__); //id, title of section, cb, which page?
 		add_settings_field('jw_banner_heading', 'Banner Heading: ', array($this,'jw_banner_heading_setting'), __FILE__, 'jw_main_section');
 		add_settings_field('jw_logo', 'Your Logo: ', array($this,'jw_logo_setting'), __FILE__, 'jw_main_section');
+		add_settings_field('jw_color_sheme', 'Your Desired Colored Scheme: ', array($this,'jw_color_scheme_setting'), __FILE__, 'jw_main_section');
 	}
 	
 	public function jw_main_section_cb() 
 	{
-		//
+		
+	}
+	
+	public function jw_validate_settings($plugin_options)
+	{
+		if ( !empty($_FILES['jw_logo_upload']['tmp_name']) ) {
+			$overide = array('test_form' => false);
+			$file = wp_handle_upload($_FILES['jw_logo_upload'], $overide);
+			$plugin_options['jw_logo'] = $file['url'];
+		} else {
+			$plugin_options['jw_logo'] = $this->options['jw_logo'];
+		}
 	}
 	
 	
@@ -75,7 +88,22 @@ class JW_Options
 	// Your Logo	
 	public function jw_logo_setting()
 	{
-		echo '<input type="file"/>';
+		echo '<input type="file" name="jw_logo_upload" /><br /><br />';
+		if ( isset($this->options['jw_logo']) ){
+			echo "img src='{$this->options['jw_logo']}' />";
+		}
+	}
+	
+	
+	public function jw_color_scheme_setting()
+	{
+		$items = array('red', 'green', 'blue', 'Yellow', 'Black', 'White');
+		echo "<select name='jw_pulgin_options[jw_color_sheme]'>";
+		foreach($items as $item) {
+			$selected = ( $this->options['jw_color_sheme'] === $item ) ? 'selected="selected"' : '';
+			echo "<option value='$item' $selected>$item</option>";
+		}
+		echo "</select>";
 	}
 	
 }
