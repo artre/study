@@ -1,0 +1,597 @@
+
+// Register Custom Post Type
+function car_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Cars', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Car', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Car', 'text_domain' ),
+		'name_admin_bar'        => __( 'Car', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Car:', 'text_domain' ),
+		'all_items'             => __( 'All Cars', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Car', 'text_domain' ),
+		'add_new'               => __( 'Add New', 'text_domain' ),
+		'new_item'              => __( 'New Car', 'text_domain' ),
+		'edit_item'             => __( 'Edit Car', 'text_domain' ),
+		'update_item'           => __( 'Update Car', 'text_domain' ),
+		'view_item'             => __( 'View Car', 'text_domain' ),
+		'search_items'          => __( 'Search Car', 'text_domain' ),
+		'not_found'             => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'items_list'            => __( 'Items list', 'text_domain' ),
+		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Car', 'text_domain' ),
+		'description'           => __( 'Car post type.', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', ),
+		'taxonomies'            => array( 'model', 'transmission', 'doors', 'color' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-dashboard',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'car', $args );
+
+}
+add_action( 'init', 'car_post_type', 0 );
+
+
+
+// Register Custom Post Type
+function car_post_type() {
+
+	$labels = array(
+		'name'                  => _x( 'Cars', 'Post Type General Name', 'text_domain' ),
+		'singular_name'         => _x( 'Car', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'             => __( 'Car', 'text_domain' ),
+		'name_admin_bar'        => __( 'Car', 'text_domain' ),
+		'parent_item_colon'     => __( 'Parent Car:', 'text_domain' ),
+		'all_items'             => __( 'All Cars', 'text_domain' ),
+		'add_new_item'          => __( 'Add New Car', 'text_domain' ),
+		'add_new'               => __( 'Add New', 'text_domain' ),
+		'new_item'              => __( 'New Car', 'text_domain' ),
+		'edit_item'             => __( 'Edit Car', 'text_domain' ),
+		'update_item'           => __( 'Update Car', 'text_domain' ),
+		'view_item'             => __( 'View Car', 'text_domain' ),
+		'search_items'          => __( 'Search Car', 'text_domain' ),
+		'not_found'             => __( 'Not found', 'text_domain' ),
+		'not_found_in_trash'    => __( 'Not found in Trash', 'text_domain' ),
+		'items_list'            => __( 'Items list', 'text_domain' ),
+		'items_list_navigation' => __( 'Items list navigation', 'text_domain' ),
+		'filter_items_list'     => __( 'Filter items list', 'text_domain' ),
+	);
+	$args = array(
+		'label'                 => __( 'Car', 'text_domain' ),
+		'description'           => __( 'Car post type.', 'text_domain' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail', ),
+		'taxonomies'            => array( 'model', 'transmission', 'doors', 'color' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+		'menu_position'         => 5,
+		'menu_icon'             => 'dashicons-dashboard',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => true,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'car', $args );
+
+}
+add_action( 'init', 'car_post_type', 0 );
+
+
+// Register Custom Taxonomy
+function car_model_taxonomy() {
+
+	$labels = array(
+		'name'                       => _x( 'Models', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Model', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Model', 'text_domain' ),
+		'all_items'                  => __( 'All Items', 'text_domain' ),
+		'parent_item'                => __( 'Parent Item', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+		'update_item'                => __( 'Update Item', 'text_domain' ),
+		'view_item'                  => __( 'View Item', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Items', 'text_domain' ),
+		'search_items'               => __( 'Search Items', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'items_list'                 => __( 'Items list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'model', array( 'car' ), $args );
+
+}
+add_action( 'init', 'car_model_taxonomy', 0 );
+
+
+// Register Custom Taxonomy
+function car_transmission_taxonomy() {
+
+	$labels = array(
+		'name'                       => _x( 'Transmissions', 'Taxonomy General Name', 'text_domain' ),
+		'singular_name'              => _x( 'Transmission', 'Taxonomy Singular Name', 'text_domain' ),
+		'menu_name'                  => __( 'Transmission', 'text_domain' ),
+		'all_items'                  => __( 'All Items', 'text_domain' ),
+		'parent_item'                => __( 'Parent Item', 'text_domain' ),
+		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
+		'new_item_name'              => __( 'New Item Name', 'text_domain' ),
+		'add_new_item'               => __( 'Add New Item', 'text_domain' ),
+		'edit_item'                  => __( 'Edit Item', 'text_domain' ),
+		'update_item'                => __( 'Update Item', 'text_domain' ),
+		'view_item'                  => __( 'View Item', 'text_domain' ),
+		'separate_items_with_commas' => __( 'Separate items with commas', 'text_domain' ),
+		'add_or_remove_items'        => __( 'Add or remove items', 'text_domain' ),
+		'choose_from_most_used'      => __( 'Choose from the most used', 'text_domain' ),
+		'popular_items'              => __( 'Popular Items', 'text_domain' ),
+		'search_items'               => __( 'Search Items', 'text_domain' ),
+		'not_found'                  => __( 'Not Found', 'text_domain' ),
+		'items_list'                 => __( 'Items list', 'text_domain' ),
+		'items_list_navigation'      => __( 'Items list navigation', 'text_domain' ),
+	);
+	$args = array(
+		'labels'                     => $labels,
+		'hierarchical'               => true,
+		'public'                     => true,
+		'show_ui'                    => true,
+		'show_admin_column'          => true,
+		'show_in_nav_menus'          => true,
+		'show_tagcloud'              => true,
+	);
+	register_taxonomy( 'transmission', array( 'car' ), $args );
+
+}
+add_action( 'init', 'car_transmission_taxonomy', 0 );
+
+
+// Castom metaboxes
+class Car_Info_Meta_Box {
+
+	public function __construct() {
+
+		if ( is_admin() ) {
+			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+		}
+
+	}
+
+	public function init_metabox() {
+
+		add_action( 'add_meta_boxes', array( $this, 'add_metabox'  )        );
+		add_action( 'save_post',      array( $this, 'save_metabox' ), 10, 2 );
+
+	}
+
+	public function add_metabox() {
+
+		add_meta_box(
+			'car_info',
+			__( 'Car Info', 'text_domain' ),
+			array( $this, 'render_metabox' ),
+			'car',
+			'advanced',
+			'default'
+		);
+
+	}
+
+	public function render_metabox( $post ) {
+
+		// Add nonce for security and authentication.
+		wp_nonce_field( 'car_nonce_action', 'car_nonce' );
+
+		// Retrieve an existing value from the database.
+		$car_year = get_post_meta( $post->ID, 'car_year', true );
+		$car_mileage = get_post_meta( $post->ID, 'car_mileage', true );
+		$car_cruise_control = get_post_meta( $post->ID, 'car_cruise_control', true );
+		$car_power_windows = get_post_meta( $post->ID, 'car_power_windows', true );
+		$car_sunroof = get_post_meta( $post->ID, 'car_sunroof', true );
+
+		// Set default values.
+		if( empty( $car_year ) ) $car_year = '';
+		if( empty( $car_mileage ) ) $car_mileage = '';
+		if( empty( $car_cruise_control ) ) $car_cruise_control = '';
+		if( empty( $car_power_windows ) ) $car_power_windows = '';
+		if( empty( $car_sunroof ) ) $car_sunroof = '';
+
+		// Form fields.
+		echo '<table class="form-table">';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_year" class="car_year_label">' . __( 'Year', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="text" id="car_year" name="car_year" class="car_year_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_year ) . '">';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_mileage" class="car_mileage_label">' . __( 'Mileage', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="number" id="car_mileage" name="car_mileage" class="car_mileage_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_mileage ) . '">';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_cruise_control" class="car_cruise_control_label">' . __( 'Cruise Control', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="checkbox" id="car_cruise_control" name="car_cruise_control" class="car_cruise_control_field" value="' . $car_cruise_control . '" ' . checked( $car_cruise_control, 'checked', false ) . '> ' . __( '', 'text_domain' );
+		echo '			<span class="description">' . __( 'Car has cruise control.', 'text_domain' ) . '</span>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_power_windows" class="car_power_windows_label">' . __( 'Power Windows', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="checkbox" id="car_power_windows" name="car_power_windows" class="car_power_windows_field" value="' . $car_power_windows . '" ' . checked( $car_power_windows, 'checked', false ) . '> ' . __( '', 'text_domain' );
+		echo '			<span class="description">' . __( 'Car has power windows.', 'text_domain' ) . '</span>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_sunroof" class="car_sunroof_label">' . __( 'Sunroof', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="checkbox" id="car_sunroof" name="car_sunroof" class="car_sunroof_field" value="' . $car_sunroof . '" ' . checked( $car_sunroof, 'checked', false ) . '> ' . __( '', 'text_domain' );
+		echo '			<span class="description">' . __( 'Car has sunroof.', 'text_domain' ) . '</span>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '</table>';
+
+	}
+
+	public function save_metabox( $post_id, $post ) {
+
+		// Add nonce for security and authentication.
+		$nonce_name   = $_POST['car_nonce'];
+		$nonce_action = 'car_nonce_action';
+
+		// Check if a nonce is set.
+		if ( ! isset( $nonce_name ) )
+			return;
+
+		// Check if a nonce is valid.
+		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) )
+			return;
+
+		// Check if the user has permissions to save data.
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return;
+
+		// Check if it's not an autosave.
+		if ( wp_is_post_autosave( $post_id ) )
+			return;
+
+		// Check if it's not a revision.
+		if ( wp_is_post_revision( $post_id ) )
+			return;
+
+		// Sanitize user input.
+		$car_new_year = isset( $_POST[ 'car_year' ] ) ? sanitize_text_field( $_POST[ 'car_year' ] ) : '';
+		$car_new_mileage = isset( $_POST[ 'car_mileage' ] ) ? sanitize_text_field( $_POST[ 'car_mileage' ] ) : '';
+		$car_new_cruise_control = isset( $_POST[ 'car_cruise_control' ] ) ? 'checked' : '';
+		$car_new_power_windows = isset( $_POST[ 'car_power_windows' ] ) ? 'checked' : '';
+		$car_new_sunroof = isset( $_POST[ 'car_sunroof' ] ) ? 'checked' : '';
+
+		// Update the meta field in the database.
+		update_post_meta( $post_id, 'car_year', $car_new_year );
+		update_post_meta( $post_id, 'car_mileage', $car_new_mileage );
+		update_post_meta( $post_id, 'car_cruise_control', $car_new_cruise_control );
+		update_post_meta( $post_id, 'car_power_windows', $car_new_power_windows );
+		update_post_meta( $post_id, 'car_sunroof', $car_new_sunroof );
+
+	}
+
+}
+
+new Car_Info_Meta_Box;
+
+
+
+
+
+// another one
+
+class Car_Price_Meta_Box {
+
+	public function __construct() {
+
+		if ( is_admin() ) {
+			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+		}
+
+	}
+
+	public function init_metabox() {
+
+		add_action( 'add_meta_boxes', array( $this, 'add_metabox'  )        );
+		add_action( 'save_post',      array( $this, 'save_metabox' ), 10, 2 );
+
+	}
+
+	public function add_metabox() {
+
+		add_meta_box(
+			'car_price',
+			__( 'Car Price', 'text_domain' ),
+			array( $this, 'render_metabox' ),
+			'car',
+			'advanced',
+			'default'
+		);
+
+	}
+
+	public function render_metabox( $post ) {
+
+		// Add nonce for security and authentication.
+		wp_nonce_field( 'car_nonce_action', 'car_nonce' );
+
+		// Retrieve an existing value from the database.
+		$car_price = get_post_meta( $post->ID, 'car_price', true );
+		$car_currency = get_post_meta( $post->ID, 'car_currency', true );
+
+		// Set default values.
+		if( empty( $car_price ) ) $car_price = '';
+		if( empty( $car_currency ) ) $car_currency = '';
+
+		// Form fields.
+		echo '<table class="form-table">';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_price" class="car_price_label">' . __( 'Price', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="number" id="car_price" name="car_price" class="car_price_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_price ) . '">';
+		echo '			<p class="description">' . __( 'Price', 'text_domain' ) . '</p>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_currency" class="car_currency_label">' . __( 'Currency', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<select id="car_currency" name="car_currency" class="car_currency_field">';
+		echo '			<option value="car_USD" ' . selected( $car_currency, 'car_USD', false ) . '> ' . __( 'USD', 'text_domain' );
+		echo '			<option value="car_EUR" ' . selected( $car_currency, 'car_EUR', false ) . '> ' . __( 'Euro', 'text_domain' );
+		echo '			<option value="car_GBP" ' . selected( $car_currency, 'car_GBP', false ) . '> ' . __( 'GB Pound', 'text_domain' );
+		echo '			<option value="car_JPY" ' . selected( $car_currency, 'car_JPY', false ) . '> ' . __( 'Japanese Yen', 'text_domain' );
+		echo '			<option value="car_CNY" ' . selected( $car_currency, 'car_CNY', false ) . '> ' . __( 'Chinese Yuan', 'text_domain' );
+		echo '			</select>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '</table>';
+
+	}
+
+	public function save_metabox( $post_id, $post ) {
+
+		// Add nonce for security and authentication.
+		$nonce_name   = $_POST['car_nonce'];
+		$nonce_action = 'car_nonce_action';
+
+		// Check if a nonce is set.
+		if ( ! isset( $nonce_name ) )
+			return;
+
+		// Check if a nonce is valid.
+		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) )
+			return;
+
+		// Check if the user has permissions to save data.
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return;
+
+		// Check if it's not an autosave.
+		if ( wp_is_post_autosave( $post_id ) )
+			return;
+
+		// Check if it's not a revision.
+		if ( wp_is_post_revision( $post_id ) )
+			return;
+
+		// Sanitize user input.
+		$car_new_price = isset( $_POST[ 'car_price' ] ) ? sanitize_text_field( $_POST[ 'car_price' ] ) : '';
+		$car_new_currency = isset( $_POST[ 'car_currency' ] ) ? $_POST[ 'car_currency' ] : '';
+
+		// Update the meta field in the database.
+		update_post_meta( $post_id, 'car_price', $car_new_price );
+		update_post_meta( $post_id, 'car_currency', $car_new_currency );
+
+	}
+
+}
+
+new Car_Price_Meta_Box;
+
+
+
+// another one
+
+class Car_Seller_Meta_Box {
+
+	public function __construct() {
+
+		if ( is_admin() ) {
+			add_action( 'load-post.php',     array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+		}
+
+	}
+
+	public function init_metabox() {
+
+		add_action( 'add_meta_boxes', array( $this, 'add_metabox'  )        );
+		add_action( 'save_post',      array( $this, 'save_metabox' ), 10, 2 );
+
+	}
+
+	public function add_metabox() {
+
+		add_meta_box(
+			'car_seller',
+			__( 'Seller Inforormation', 'text_domain' ),
+			array( $this, 'render_metabox' ),
+			'car',
+			'advanced',
+			'default'
+		);
+
+	}
+
+	public function render_metabox( $post ) {
+
+		// Add nonce for security and authentication.
+		wp_nonce_field( 'car_nonce_action', 'car_nonce' );
+
+		// Retrieve an existing value from the database.
+		$car_name = get_post_meta( $post->ID, 'car_name', true );
+		$car_phone = get_post_meta( $post->ID, 'car_phone', true );
+		$car_address = get_post_meta( $post->ID, 'car_address', true );
+		$car_private = get_post_meta( $post->ID, 'car_private', true );
+
+		// Set default values.
+		if( empty( $car_name ) ) $car_name = '';
+		if( empty( $car_phone ) ) $car_phone = '';
+		if( empty( $car_address ) ) $car_address = '';
+		if( empty( $car_private ) ) $car_private = '';
+
+		// Form fields.
+		echo '<table class="form-table">';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_name" class="car_name_label">' . __( 'Name', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="text" id="car_name" name="car_name" class="car_name_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_name ) . '">';
+		echo '			<p class="description">' . __( 'Seller full name.', 'text_domain' ) . '</p>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_phone" class="car_phone_label">' . __( 'Phone', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="text" id="car_phone" name="car_phone" class="car_phone_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_phone ) . '">';
+		echo '			<p class="description">' . __( 'Phone number.', 'text_domain' ) . '</p>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_address" class="car_address_label">' . __( 'Address', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<input type="text" id="car_address" name="car_address" class="car_address_field" placeholder="' . esc_attr__( '', 'text_domain' ) . '" value="' . esc_attr__( $car_address ) . '">';
+		echo '			<p class="description">' . __( 'Seller address.', 'text_domain' ) . '</p>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '	<tr>';
+		echo '		<th><label for="car_private" class="car_private_label">' . __( 'Private or Dealer', 'text_domain' ) . '</label></th>';
+		echo '		<td>';
+		echo '			<select id="car_private" name="car_private" class="car_private_field">';
+		echo '			<option value="car_private" ' . selected( $car_private, 'car_private', false ) . '> ' . __( 'Private', 'text_domain' );
+		echo '			<option value="car_dealer" ' . selected( $car_private, 'car_dealer', false ) . '> ' . __( 'Dealer', 'text_domain' );
+		echo '			</select>';
+		echo '			<p class="description">' . __( 'Private seller or a dealer.', 'text_domain' ) . '</p>';
+		echo '		</td>';
+		echo '	</tr>';
+
+		echo '</table>';
+
+	}
+
+	public function save_metabox( $post_id, $post ) {
+
+		// Add nonce for security and authentication.
+		$nonce_name   = $_POST['car_nonce'];
+		$nonce_action = 'car_nonce_action';
+
+		// Check if a nonce is set.
+		if ( ! isset( $nonce_name ) )
+			return;
+
+		// Check if a nonce is valid.
+		if ( ! wp_verify_nonce( $nonce_name, $nonce_action ) )
+			return;
+
+		// Check if the user has permissions to save data.
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return;
+
+		// Check if it's not an autosave.
+		if ( wp_is_post_autosave( $post_id ) )
+			return;
+
+		// Check if it's not a revision.
+		if ( wp_is_post_revision( $post_id ) )
+			return;
+
+		// Sanitize user input.
+		$car_new_name = isset( $_POST[ 'car_name' ] ) ? sanitize_text_field( $_POST[ 'car_name' ] ) : '';
+		$car_new_phone = isset( $_POST[ 'car_phone' ] ) ? sanitize_text_field( $_POST[ 'car_phone' ] ) : '';
+		$car_new_address = isset( $_POST[ 'car_address' ] ) ? sanitize_text_field( $_POST[ 'car_address' ] ) : '';
+		$car_new_private = isset( $_POST[ 'car_private' ] ) ? $_POST[ 'car_private' ] : '';
+
+		// Update the meta field in the database.
+		update_post_meta( $post_id, 'car_name', $car_new_name );
+		update_post_meta( $post_id, 'car_phone', $car_new_phone );
+		update_post_meta( $post_id, 'car_address', $car_new_address );
+		update_post_meta( $post_id, 'car_private', $car_new_private );
+
+	}
+
+}
+
+new Car_Seller_Meta_Box;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

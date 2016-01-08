@@ -6,7 +6,7 @@ class TutsPlus_Post_Notice_Editor
 	public function initialize() 
 	{
 		add_action( 'add_meta_boxes', array($this, 'add_meta_box') );
-		add_action( 'save_post', array $this, 'save_post_notice') );
+		add_action( 'save_post', array ($this, 'save_post_notice') );
 	}
 	
 	public function add_meta_box() 
@@ -33,6 +33,7 @@ class TutsPlus_Post_Notice_Editor
 		}
 		
 		$post_notice = $_POST['tutsplus-post-notice-editor' ];
+		stripslashes( string_tags( $post_notice ) ) ;
 		update_post_meta( $post_id, 'tutsplus-post-notice', $post_notice );
 		
 	}

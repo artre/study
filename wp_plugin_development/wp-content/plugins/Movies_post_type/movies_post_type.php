@@ -8,6 +8,7 @@ Author: Tomek
 Author URI: http://football.com
 */
 
+defined( 'ABSPATH' ) or die( 'No script kiddies please!' ); // security thing
 
 class AK_Polls_Post_Type 
 {	
@@ -117,14 +118,9 @@ class AK_Polls_Post_Type
 			);
 		});
 		
+		// This function is including the form from views directory
 		function poll_length($post) {
-			$length = get_post_meta($post->ID, 'ak_polls_length', true);
-			?>
-			<p>
-				<label for='ak_polls_length'> Length: </label>
-				<input type='text' class='widefat' name='ak_polls_length' id='ak_polls_length' value='<?php echo esc_attr($length);?>' />
-			</p>
-			<?php
+			require_once( plugin_dir_path( __FILE__ ) . 'views/length-form.php' );
 		}
 		
 		add_action('save_post', function($id) {
