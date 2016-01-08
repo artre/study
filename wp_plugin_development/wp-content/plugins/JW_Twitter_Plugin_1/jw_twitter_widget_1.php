@@ -115,7 +115,7 @@ class JW_Twitter_Widget extends WP_Widget {
 			$data->tweets[] = $this->filter_tweet($tweet->text);
 		}
 		
-		set_transient('recent_tweets_widgets', $data, 60 * 5);
+		set_transient('recent_tweets_widgets', $data, 60 * 5); // update data only every 5 min, ot not overload the server. I can use this for my polls. After user voted, show him results which are saved with set_transient. Update the results only every 5 min.
 		return $data;
 	}
 	

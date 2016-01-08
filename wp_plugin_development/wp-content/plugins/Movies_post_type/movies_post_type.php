@@ -15,6 +15,7 @@ class AK_Polls_Post_Type
 	{
 		$this->register_post_type();
 		$this->taxonomies();
+		$this->metaboxes();
 	}
 	
 	public function register_post_type()
@@ -99,17 +100,42 @@ class AK_Polls_Post_Type
 	public function register_all_taxonomies($taxonomies)
 	{
 		foreach($taxonomies as $name => $arr) {
-			register_taxonomy($name, array('ak_polls'), $arr);
+			register_taxonomy($name, array('ak_polls'), $arr); // 'ak_polls' is a custom post name
 		}
 		
 	}
 	
 	public function metaboxes()
 	{
-		add_action('add_meta_boxes', function(){
+		add_action('add_meta_boxes', function() {
 			// css id, title, cb function, page (post_type), priority, cb function arguments
-			add_meta_box();
-		})
+			add_meta_box(
+				'ak_polls_length', 
+				'Poll Length', 
+				'poll_length', 
+				'ak_polls'
+			);
+		});
+		
+		function poll_length($post) {
+			$length = get_post_meta($post->ID, 'ak_polls_length', true);
+			?>
+			<p>
+				<label for='ak_polls_length'> Length: </label>
+				<input type='text' class='widefat' name='ak_polls_length' id='ak_polls_length' value='<?php echo esc_attr($length);?>' />
+			</p>
+			<?php
+		}
+		
+		add_action('save_post', function($id) {
+			if ( isset($_POST['ak_polls_length']) ) {
+				update_post_meta(
+					$id,
+					'ak_polls_length',
+					strip_tags($_POST['ak_polls_length'])
+				);
+			}
+		});
 	}
 	
 }
