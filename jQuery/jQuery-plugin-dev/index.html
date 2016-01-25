@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>nuPoll - jPoll 2.0</title>
+		<link rel="stylesheet" href="css/jquery.nupoll.css" />
+		<link rel="stylesheet" href="css/theme.css" />
+	</head>
+	<body>
+		<div id="mypoll"></div>
+		<script src="js/jquery-1.12.0.min.js"></script>
+		<script src="js/jquery.nupoll.js"></script>
+		<script>
+			$(function() {
+				$("#mypoll").nupoll({
+					question: "What is your favourite meme?",
+					categories: ["Philosoraptor", "Willy Wonka", "Success Kid", "Socially Awkward Penguin", "Insanity Wolf"]
+				});
+			});	
+		</script>
+	</body>
+</html>
