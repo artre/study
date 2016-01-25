@@ -2,38 +2,68 @@
 	
 	var defaults = {
 		question: "Which is your favourite JavaScript library",
+		ajaxOptions: {
+			url: "",
+			type: "POST",
+			contentType: "application/json; charset=utf=8",
+			dataType: "json"	
+		},
 		url: "",
 		buttonText:  "Answer!", 
 		categories: ["jQuery", "YUI", "Dojo", "ExtJS", "Zepto"],
 		containerClass: "nupoll",
 		formClass: "nupoll-form",
-		buttonClass: "nupoll-submit"
+		buttonClass: "nupoll-submit",
+		errorMessage: "Thanks for your vote, unfortunately an error and the poll results cannot be shown",
+		errorClass: "nupoll-error-message"
 	};
 	
 	function Nupoll(element, options) {
 		
 		var widget = this;
 		
-		widget.config = $.extend({}, defaults, options);
+		widget.config = $.extend(true, {}, defaults, options);
 		widget.element = element;
 		widget.element.on("submit", function(e) {
 			e.preventDefault();
 			
-			$.ajax({
-				type: "POST",
-				url: widget.config.url,
-				contentType: "application/json; charset=utf=8",
-				data: JSON.stringify({ selected: widget.element.find(":checked").val() }),
-				dataType: "json"
-			}).done(function(data) {
+			var dataObj = {
+				data: JSON.stringify({ selected: widget.element.find(":checked").val() })
+			},
+			ajaxSettings = $.extend({}, widget.config.ajaxOptions, dataObj);
+			
+			
+			
+			$.ajax(ajaxSettings).done(function(data) {
 				// consume data!
-				widget.labels = widget.elemet.find("label");
-				widget.element.width(widget.element.width()).height(widget.element.height()).find("form").remove();
+				
+			}).fail(function(data) {
+				
+				var returnVal = widget.element.triggerHandler("responseerror.nupoll", data);
+				
+				if (returnVal !== false) {
+					widget.element.append($("<p/>", {
+						text: widget.config.erroMessage,
+						"class": widget.config.errorClass
+					}));
+				}
 			});
+			widget.labels = widget.element.find("label");
+			widget.element.width(widget.element.width()).height(widget.element.height()).find("form").remove();
+				
+			widget.element.trigger("beforeresponse.nupoll");
 		});
 		
 		widget.element.one("change", function(e) {
 			widget.element.find("button").removeProp("disabled");
+		});
+		
+		$.each(widget.config, function(key, val) {
+			if (typeof val === "function") {
+				widget.element.on(key + ".nupoll", function(e, param) {
+					return val(e, widget.element, param);
+				});
+			}
 		});
 		
 		widget.init();
@@ -70,6 +100,8 @@
 			disabled: "disabled"
 		}).appendTo(form);
 		
+		this.element.trigger("created.nupoll");
+				
 	}
 	
 	
